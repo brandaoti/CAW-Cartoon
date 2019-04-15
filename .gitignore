@@ -1,0 +1,56 @@
+# Este arquivo .gitignore deve ser colocado na raiz do diretório do projeto Unity
+
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+
+# Nunca ignorar metadados de ativos
+!/[Aa]ssets/**/*.meta
+
+# Descomente esta linha se desejar ignorar o plug-in de ferramentas de armazenamento de ativos
+# / [Aa] ssets / AssetStoreTools *
+
+# TextMesh Pro arquivos
+[Aa]ssets/TextMesh*Pro/
+
+# Diretório de cache do Visual Studio
+.vs/
+
+# Diretório de cache Gradle
+.gradle/
+
+# Soluções de VS / MD / Consulo geradas automaticamente e arquivos de projeto
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity3D gerou arquivos meta
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D gerou o arquivo em relatórios de falhas
+sysinfo.txt
+
+# Builds
+*.apk
+*.unitypackage
+
+# Arquivo gerado Crashlytics
+crashlytics-build.properties
