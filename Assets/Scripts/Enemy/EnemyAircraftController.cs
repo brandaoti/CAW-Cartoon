@@ -47,7 +47,7 @@ public class EnemyAircraftController : MonoBehaviour {
 
 		switch(direction){
 
-			// Inimigo ir para cima
+			// Inimigo ir para baixo
 		case Direction.up:
 
 			if(transform.position.y >= curveLocation && isCurve == false){
@@ -68,11 +68,11 @@ public class EnemyAircraftController : MonoBehaviour {
 					countRotation += routeChange;
 				}
 			}
-			transform.Translate (Vector3.down * enemySpeed  * Time.deltaTime);
+			transform.Translate (Vector3.up * enemySpeed * -1 * Time.deltaTime);
 
 		break;
 
-			// Inimigo ir para baixo
+			// Inimigo ir para cima
 		case Direction.down:
 
 			if (transform.position.y <= curveLocation && isCurve == false) {
@@ -91,9 +91,7 @@ public class EnemyAircraftController : MonoBehaviour {
 				} else {
 					countRotation += routeChange;
 				}
-			}
-
-            
+			}          
 			transform.Translate (Vector3.down * enemySpeed * Time.deltaTime);
 
 			break;
@@ -147,7 +145,7 @@ public class EnemyAircraftController : MonoBehaviour {
 		}
 	}
 
-  /*  void OnTriggerEnter2D(Collider2D c){
+    void OnTriggerEnter2D(Collider2D c){
 
         switch(c.gameObject.tag){
         case "PlayerShot":
@@ -160,7 +158,7 @@ public class EnemyAircraftController : MonoBehaviour {
 
         break;
         }
-    }*/
+    }
 
 	void OnBecameInvisible(){
 		Destroy (this.gameObject);
