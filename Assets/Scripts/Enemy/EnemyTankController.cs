@@ -7,8 +7,6 @@ public class EnemyTankController : MonoBehaviour {
 	private GameController 		_gameController;
 	private PlayerController 	_playerController;
 
-	private Rigidbody2D tankRB;
-
 	[Header("Config. Arma | Tiro")]
 
 	public tagBullets	tag_Bullet; 
@@ -22,8 +20,6 @@ public class EnemyTankController : MonoBehaviour {
 
 		_gameController = FindObjectOfType(typeof(GameController)) as GameController;
 
-
-		tankRB = GetComponent<Rigidbody2D> ();
 	}
 
 	// Update is called once per frame

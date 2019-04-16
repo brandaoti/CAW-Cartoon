@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1823107776935768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.29, y: 0.47, z: 0}
+  m_LocalPosition: {x: 20.86, y: 12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4240714308139598}
@@ -131,8 +131,8 @@ MonoBehaviour:
   tag_Bullet: 0
   gunPosition: {fileID: 4240714308139598}
   id_Bullet: 7
-  shooting_Velocity: 3
-  shooting_Delay_Timer: 2.3
+  shooting_Velocity: 3.5
+  shooting_Delay_Timer: 3.5
 --- !u!212 &212275792149610712
 SpriteRenderer:
   m_ObjectHideFlags: 1

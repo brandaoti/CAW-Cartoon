@@ -167,7 +167,7 @@ public class GameController : MonoBehaviour {
 		GameObject temp = Instantiate (playerPrefab, playerSpawn.position, playerSpawn.localRotation);
 
 		yield return new WaitForEndOfFrame ();
-		_playerController.StartCoroutine ("invencivel");
+        _playerController.StartCoroutine ("Invincible");
 
 		_playerController.shadowGO.SetActive (true);
 	}

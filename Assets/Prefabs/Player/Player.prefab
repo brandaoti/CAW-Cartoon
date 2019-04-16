@@ -208,9 +208,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contrailSR: {fileID: 212241072204114164}
   shadowGO: {fileID: 1802013843297550}
-  invinvibleColor: {r: 1, g: 1, b: 1, a: 0.5882353}
+  invincibleColor: {r: 0.86764705, g: 0.17225347, b: 0.17225347, a: 0.503}
+  blinkTime: 0.5
   speed: 3
-  tilt: 2
+  tilt: 3
   tag_Bullet: 1
   shotSpawn: {fileID: 4623790824382282}
   idBullet: 6
@@ -295,7 +296,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 98
   m_Sprite: {fileID: 21300000, guid: 62b85baf227781342b147c7656881d70, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
