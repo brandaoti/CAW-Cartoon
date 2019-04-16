@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour {
 
 	public SpriteRenderer	contrailSR; // TODO ir aumentando a força da fumaça no momento da decolagem
 	public GameObject 		shadowGO;  // TODO desabilitar a sombra na hora que for decolar
-	public Color			invinvibleColor; 
+	public Color			invincibleColor;
+    public float            blinkTime;
 
 	public float 			speed = 5f; 
 	public float 			tilt  = 3f; // Fazer o avião inclinar 
@@ -120,17 +121,48 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	IEnumerator Invinvible(){ //TODO  fazer um colisor e desabilitar e so habilitar quando parar de piscar ao ser atingido
+	IEnumerator Invincible(){ //TODO  fazer um colisor e desabilitar e so habilitar quando parar de piscar ao ser atingido
 
 		Collider2D colisor = GetComponent<Collider2D> ();
 
 		colisor.enabled = false;
-		playerSR.color = invinvibleColor;
+		playerSR.color = invincibleColor;
+
+        StartCoroutine("piscarPlayer");
 
 		yield return new WaitForSeconds (_gameController.tempoInvencivel);
-		colisor.enabled = true;
 
-		playerSR.color = Color.white;
+        colisor.enabled = true;
+        playerSR.color = Color.white;
+
+        playerSR.enabled = true;
+        contrailSR.enabled = true;
+
+        StopCoroutine("piscarPlayer");
 
 	}
+
+    IEnumerator piscarPlayer(){
+
+        yield return new WaitForSeconds(blinkTime);
+
+        playerSR.enabled = !playerSR.enabled;
+        contrailSR.enabled = !contrailSR.enabled;
+       
+        StartCoroutine("piscarPlayer");
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
