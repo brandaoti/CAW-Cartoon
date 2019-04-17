@@ -209,14 +209,14 @@ MonoBehaviour:
   contrailSR: {fileID: 212241072204114164}
   shadowGO: {fileID: 1802013843297550}
   invincibleColor: {r: 0.86764705, g: 0.17225347, b: 0.17225347, a: 0.503}
-  blinkTime: 0.5
+  blinkTime: 0.2
   speed: 5
   tilt: 3
   tag_Bullet: 1
   shotSpawn: {fileID: 4623790824382282}
   idBullet: 6
   shotSpeed: 10
-  fireRate: 0.25
+  fireRate: 0.2
 --- !u!212 &212190820938517486
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -15,6 +15,9 @@ public class EnemyTankController : MonoBehaviour {
 	public float 		shotSpeed; // Ao sair da arma
 	public float 		shotTime; // Temporizador entre disparo
 
+    [Header("Config. Pontos")]
+
+    public int pontos;
 
 	void Start () {
 
@@ -60,6 +63,8 @@ public class EnemyTankController : MonoBehaviour {
 
             GameObject temp = Instantiate(_gameController.explosaoPrefab, transform.position, transform.localRotation);
             temp.transform.parent = _gameController.cenario;
+
+            _gameController.addScore(pontos);
 
             Destroy(this.gameObject);
 

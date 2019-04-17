@@ -67,9 +67,8 @@ public class GameController : MonoBehaviour {
 
 		StartCoroutine ("introFase");
 
-		//_playerController = FindObjectOfType<PlayerController> () as PlayerController;
-
-
+        txtPontos.text = "0";
+        txtVidasExtra.text = "x" + vidasExtras.ToString();
 	}
 	
 	// Update is called once per frame
@@ -160,11 +159,17 @@ public class GameController : MonoBehaviour {
 
 		vidasExtras -= 1;
 
-		if(vidasExtras >= 0){
+        if(vidasExtras >= 0){
 			StartCoroutine ("instanciarPlayer");
 		} else {
 			print ("Game Over");
 		}
+
+        if(vidasExtras < 0){
+            vidasExtras = 0;
+        }
+        txtVidasExtra.text = "x" + vidasExtras.ToString();
+
 	}
 
 	IEnumerator instanciarPlayer(){
@@ -221,4 +226,9 @@ public class GameController : MonoBehaviour {
 
 
 	}
+
+    public void addScore(int pontos){
+        score += pontos;
+        txtPontos.text = score.ToString();
+    }
 }
