@@ -182,6 +182,11 @@ MonoBehaviour:
   degreesRotation: 90
   tilt: 2
   routeChange: 1
+  tag_Bullet: 0
+  gunPosition: {fileID: 4333596520965956}
+  id_Bullet: 6
+  shotSpeed: 2
+  shotTime: 1
 --- !u!212 &212678681348082172
 SpriteRenderer:
   m_ObjectHideFlags: 1

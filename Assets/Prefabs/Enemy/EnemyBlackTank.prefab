@@ -131,8 +131,8 @@ MonoBehaviour:
   tag_Bullet: 0
   gunPosition: {fileID: 4240714308139598}
   id_Bullet: 7
-  shooting_Velocity: 3.5
-  shooting_Delay_Timer: 3.5
+  shotSpeed: 3
+  shotTime: 5
 --- !u!212 &212275792149610712
 SpriteRenderer:
   m_ObjectHideFlags: 1

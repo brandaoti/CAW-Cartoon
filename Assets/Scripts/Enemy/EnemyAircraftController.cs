@@ -12,7 +12,7 @@ public class EnemyAircraftController : MonoBehaviour {
 
     private GameController  _gameController;
 
-    private Rigidbody2D enemyRB;
+    //private Rigidbody2D enemyRB;
 
 	public Direction direction;
 
@@ -26,6 +26,14 @@ public class EnemyAircraftController : MonoBehaviour {
 	private float countRotation;   // Vai fazer apenas a contagem pra startar a rotação
 
 	private bool isCurve;
+
+    [Header("Config. Arma | Tiro")]
+
+    public tagBullets   tag_Bullet; 
+    public Transform    gunPosition; // Posição da arma
+    public int          id_Bullet; // Id da bala que o tanque irá assumir
+    public float        shotSpeed; // Ao sair da arma
+    public float        shotTime; // Temporizador entre disparo
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +50,22 @@ public class EnemyAircraftController : MonoBehaviour {
 		ChangeRotation ();
 	
 	}
+
+    void shotEnemy(){
+
+
+        if(_gameController.isAlivePlayer == true){
+            
+            gunPosition.up = _gameController._playerController.transform.position - transform.position;
+
+            GameObject temp = Instantiate(_gameController.bulletPrefab[id_Bullet], gunPosition.position, gunPosition.localRotation);
+            temp.transform.tag = _gameController.aplicarTag(tag_Bullet);
+
+            temp.GetComponent<Rigidbody2D>().velocity = gunPosition.up * shotSpeed;
+        }
+       
+
+    }
 
 	void ChangeRotation (){
 
@@ -154,10 +178,25 @@ public class EnemyAircraftController : MonoBehaviour {
 
             GameObject temp = Instantiate(_gameController.explosaoPrefab, transform.position, transform.localRotation);
 
+            temp.transform.parent = _gameController.cenario;
+
             Destroy(this.gameObject);
 
         break;
         }
+    }
+
+    IEnumerator ShootingTimer(){
+
+        yield return new WaitForSeconds(shotTime);
+
+        shotEnemy();
+
+        StartCoroutine("ShootingTimer");
+    }
+
+    void OnBecameVisible(){
+        StartCoroutine("ShootingTimer");
     }
 
 	void OnBecameInvisible(){

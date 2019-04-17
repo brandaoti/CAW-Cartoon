@@ -12,8 +12,8 @@ public class EnemyTankController : MonoBehaviour {
 	public tagBullets	tag_Bullet; 
 	public Transform	gunPosition; // Posição da arma
 	public int 			id_Bullet; // Id da bala que o tanque irá assumir
-	public float 		shooting_Velocity; // Ao sair da arma
-	public float 		shooting_Delay_Timer; // Temporizador entre disparo
+	public float 		shotSpeed; // Ao sair da arma
+	public float 		shotTime; // Temporizador entre disparo
 
 
 	void Start () {
@@ -36,9 +36,7 @@ public class EnemyTankController : MonoBehaviour {
 			GameObject temp = Instantiate (_gameController.bulletPrefab[id_Bullet], gunPosition.position, gunPosition.localRotation);
 			temp.transform.tag = _gameController.aplicarTag (tag_Bullet);
 
-			//temp.transform.position = gunPosition.position;
-
-			temp.GetComponent<Rigidbody2D> ().velocity = gunPosition.up * shooting_Velocity;
+			temp.GetComponent<Rigidbody2D> ().velocity = gunPosition.up * shotSpeed;
 		}
 
 
@@ -46,7 +44,7 @@ public class EnemyTankController : MonoBehaviour {
 
 	IEnumerator tmpDisparo(){
 
-		yield return new WaitForSeconds (shooting_Delay_Timer);
+		yield return new WaitForSeconds (shotTime);
 
 		atirar ();
 
@@ -61,6 +59,7 @@ public class EnemyTankController : MonoBehaviour {
             Destroy(c.gameObject);
 
             GameObject temp = Instantiate(_gameController.explosaoPrefab, transform.position, transform.localRotation);
+            temp.transform.parent = _gameController.cenario;
 
             Destroy(this.gameObject);
 

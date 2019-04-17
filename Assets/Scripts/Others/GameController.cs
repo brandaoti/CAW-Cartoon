@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum tagBullets{
 	inimigo, player
@@ -55,6 +56,11 @@ public class GameController : MonoBehaviour {
 
 	public Color		corInicialFumaca;
 	public Color		corFinalFumaca;
+
+    [Header("Config. HUD ")]
+    public Text txtPontos;
+    public Text txtVidasExtra;
+    private int score;
 
 	// Use this for initialization
 	void Start () {
