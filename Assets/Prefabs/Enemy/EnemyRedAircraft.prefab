@@ -186,7 +186,7 @@ MonoBehaviour:
   gunPosition: {fileID: 4161828475656502}
   id_Bullet: 7
   shotSpeed: 3
-  shotTime: 1
+  shotTime: 2
 --- !u!212 &212120739974972754
 SpriteRenderer:
   m_ObjectHideFlags: 1

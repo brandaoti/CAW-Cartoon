@@ -10,22 +10,30 @@ public class MoveOffset : MonoBehaviour {
     public float        incrementOffset; 
     public float        speed;
 
+    public string       sortingLayer;
+    public int          orderInLayer;
+
     private float       offSet;
+   
 
     // Use this for initialization
     void Start () {
-
+        
         mRenderer = GetComponent<MeshRenderer>();
 
-        currentMaterial = mRenderer.material;
+        mRenderer.sortingLayerName = sortingLayer; // vai ler o nome da layer e rescrever
+        mRenderer.sortingOrder = orderInLayer; // vai ler a ordem e rescrever
+
+        currentMaterial = mRenderer.material; // material atual vai rescrever o material antigo
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		
         offSet += incrementOffset;
 
         currentMaterial.SetTextureOffset("_MainTex", new Vector2(offSet * speed, 0));
+
 
 
 	}

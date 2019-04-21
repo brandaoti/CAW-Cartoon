@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum tagBullets{
 	inimigo, player
@@ -16,6 +17,7 @@ public enum gameState{
 public class GameController : MonoBehaviour {
 
 	public PlayerController	_playerController;
+
 
 	[Header("Config. Limites mapa")]
 
@@ -64,6 +66,9 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 40;
 
 		StartCoroutine ("introFase");
 
@@ -162,7 +167,10 @@ public class GameController : MonoBehaviour {
         if(vidasExtras >= 0){
 			StartCoroutine ("instanciarPlayer");
 		} else {
-			print ("Game Over");
+            
+            //print ("Game Over");
+
+            ChangeScene("Gameover");
 		}
 
         if(vidasExtras < 0){
@@ -230,5 +238,10 @@ public class GameController : MonoBehaviour {
     public void addScore(int pontos){
         score += pontos;
         txtPontos.text = score.ToString();
+    }
+
+    public void ChangeScene(string scene){
+
+        SceneManager.LoadScene(scene);
     }
 }
